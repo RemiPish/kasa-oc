@@ -1,0 +1,14 @@
+.cardImgDiv {
+    height: 225px;
+    border-radius: 25px;
+    min-height: 50px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.cardImg{
+    height: 225px;
+    min-width: 100%;
+    object-fit: cover;
+}

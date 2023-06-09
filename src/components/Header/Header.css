@@ -1,0 +1,23 @@
+.headerNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 100px;
+}
+
+.navDiv {
+    display: flex;
+    gap: 30px;
+}
+
+.headerLink {
+    font-size: 24px;
+    color: #ff6060;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.headerLink:hover,
+.headerLink:focus {
+    text-decoration: underline;
+}

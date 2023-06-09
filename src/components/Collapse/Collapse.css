@@ -1,0 +1,25 @@
+.collapseDiv {
+    max-width: 1023px;
+
+    color: #fff;
+}
+
+.collapseTitle {
+    background-color: #FF6060;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.collapseDesc {
+    color: #FF6060;
+    background: #f7f7f7;
+    font-size: 24px;
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 25px;
+}
