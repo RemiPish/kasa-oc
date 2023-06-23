@@ -1,0 +1,25 @@
+.homeDiv {
+    color: white;
+}
+
+
+
+.homeHeaderTxt div {
+    font-size: 48px;
+}
+
+.homeHeaderImg {
+    mix-blend-mode: darken;
+}
+
+.cardListDiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    background-color: #f7f7f7;
+    border-radius: 25px;
+    gap: 20px;  
+    padding: 20px;
+}

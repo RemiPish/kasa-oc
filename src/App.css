@@ -7,6 +7,13 @@ body,
 
 }
 
+.page {
+  margin: auto;
+  max-width: 1200px;
+  width: 100%;
+
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -16,6 +23,7 @@ body,
   flex-grow: 1;
   gap: 15px;
   width: 100%;
+
 
 }
 

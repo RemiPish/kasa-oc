@@ -1,6 +1,5 @@
 .collapseDiv {
-    max-width: 1023px;
-
+    width: 1023px;
     color: #fff;
 }
 
@@ -18,8 +17,8 @@
 .collapseDesc {
     color: #FF6060;
     background: #f7f7f7;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
     border-radius: 5px;
-    padding: 25px;
+    padding: 15px;
 }
