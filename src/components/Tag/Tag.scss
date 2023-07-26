@@ -1,6 +1,7 @@
+@import "../../style.scss";
 .tag {
-    background-color: #ff6060;
-    color: #fff;
+    background-color: $primary-color;
+    color: $color-white;
     border-radius: 10px;
     font-size: 14px;
     line-height: 25px;

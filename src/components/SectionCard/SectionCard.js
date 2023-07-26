@@ -1,6 +1,7 @@
 import React from "react";
-import "./SectionCard.css";
+import "./SectionCard.scss";
 
+//la section avec header image utilisé sur les pages A Propos et Page Accueil
 export default function SectionCard(props) {
    const divStyle = {
       filter: props.imgStyle === 'darken' ? 'brightness(50%)' : 'none',

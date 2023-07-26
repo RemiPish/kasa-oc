@@ -8,7 +8,9 @@ body,
 }
 
 .page {
-  margin: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 1200px;
   width: 100%;
 
@@ -23,8 +25,6 @@ body,
   flex-grow: 1;
   gap: 15px;
   width: 100%;
-
-
 }
 
 .content {

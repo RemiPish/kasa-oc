@@ -1,0 +1,10 @@
+$primary-color: #ff6060;
+$color-white: #fff;
+
+$screen-sm-breakpoint: 800px;
+
+@mixin sm {
+    @media (max-width: #{$screen-sm-breakpoint}) {
+        @content;
+    }
+ }

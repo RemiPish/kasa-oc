@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import SectionCard from '../SectionCard/SectionCard';
-import './Home.css'
+import SectionCard from '../../components/SectionCard/SectionCard';
+import './Home.scss'
 import Img from "../../assets/homeImg.png"
-import Card from '../Card/Card';
+import Card from '../../components/Card/Card';
 
 
-
+//LA PAGE ACCUEIL CONTENANT LA LISTE DES ANNONCES
 export default function Home() {
    document.title = 'Accueil - Kasa';
+
+   //Donnée annonces apartements
    const [jsonData, setJsonData] = useState(null);
 
    useEffect(() => {
+      //on recupere les données d'annonces du json
       const fetchData = async () => {
          try {
             const response = await fetch('./annonces.json', {
@@ -32,6 +35,7 @@ export default function Home() {
    if (!jsonData) {
       return <div>Loading...</div>;
    }
+   //on affiche les données d'annonces dans la page utilisant le composant Card
    return (
       <div className="homeDiv">
          <SectionCard imgStyle="darken" img={Img} alt="logo card de la page Accueil" />
@@ -42,8 +46,6 @@ export default function Home() {
                      link={'annonce/' + item.id}
                      image={item.cover}
                      title={item.title}
-
-
                   />
                ))}
             </div>

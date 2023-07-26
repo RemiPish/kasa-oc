@@ -1,0 +1,35 @@
+@import "../../style.scss";
+
+.errorDiv {
+    color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    justify-content: space-evenly;
+    a {
+        color: $primary-color;
+        font-weight: 500;
+        font-size: 18px;
+    }
+}
+
+.errorTitle {
+    font-size: 288px;
+    font-weight: 700;
+}
+
+.errorTxt {
+    font-weight: 500;
+    font-size: 36px;
+}
+
+@include sm {
+    .errorTitle {
+        font-size: 2rem;
+    }
+    .errorTxt{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}

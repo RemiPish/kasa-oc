@@ -1,3 +1,5 @@
+@import "../../style.scss";
+
 .footerDiv {
     font-size: 24px;
     display: flex;
@@ -8,6 +10,9 @@
     background-color: black;
     justify-content: center;
     gap: 20px;
+    @include sm {
+        font-size: 0.6rem;
+    }
 }
 
 .footerLogoDiv {

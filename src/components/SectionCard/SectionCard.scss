@@ -1,0 +1,48 @@
+@import "../../style.scss";
+
+.cardImgDiv {
+    height: 225px;
+    border-radius: 25px;
+    min-height: 50px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.cardImg {
+    height: 225px;
+    min-width: 100%;
+    object-fit: cover;
+}
+
+.homeHeaderTxt {
+    position: absolute;
+    top: 38%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 48px;
+    margin: auto;
+
+    div {
+        width: 80%;
+        text-align: center;
+    }
+}
+
+@include sm {
+    .homeHeaderTxt {
+        top: 25%;
+        font-size: 1.5rem;
+
+        div {
+            text-align: unset !important;
+        }
+    }
+
+    .cardImgDiv,
+    .cardImg {
+        height: 110px;
+    }
+}

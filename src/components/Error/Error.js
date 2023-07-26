@@ -1,8 +1,8 @@
 import React from 'react';
-import './Error.css'
+import './Error.scss'
 
 
-
+//la page d'erreur quand l'url est invalide
 export default function Error() {
    document.title = 'Erreur - Kasa'
    return (

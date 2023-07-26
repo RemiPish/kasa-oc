@@ -1,0 +1,142 @@
+@import "../../style.scss";
+
+.tag-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.annonce-info-div {
+    color: $primary-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.annonce-info,
+.annonce-info-rating {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.annonce-title {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.annonce-location {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.rating-div {
+    align-items: flex-end;
+}
+
+.annonce-info-profile {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    .name {
+        font-size: 18px;
+    }
+}
+
+.host-img {
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+    overflow: hidden;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        min-height: 100%;
+    }
+}
+
+.annonce-rating {
+    display: flex;
+    gap: 5px;
+}
+
+.colored {
+    color: $primary-color;
+}
+
+.fa-star {
+    font-size: 25px;
+}
+
+.gray {
+    color: gray;
+}
+
+.annonce-body {
+    display: flex;
+    align-items: space-between;
+    gap: 65px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.annonce-pic-container {
+    display: flex;
+    height: 415px;
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+@include sm {
+    .annonce-info {
+        margin-bottom: 20px;
+
+        &-rating {
+            flex-direction: row-reverse;
+        }
+    }
+
+    .annonce-pic-container {
+        height: 225px;
+    }
+
+    .annonce-info-div,
+    .annonce-body {
+        flex-direction: column;
+    }
+
+    .annonce-body {
+        gap: 10px;
+    }
+
+    .annonce-title {
+        font-size: 18px;
+    }
+
+    .annonce-location {
+        font-size: 14px;
+    }
+
+    .tag {
+        font-size: 10px;
+        padding: 0px 15px;
+    }
+
+    .rating-div {
+        align-self: start;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .fa-star,
+    .name {
+        font-size: 12px;
+    }
+}

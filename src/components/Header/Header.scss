@@ -1,3 +1,5 @@
+@import "../../style.scss";
+
 .headerNav {
     display: flex;
     align-items: center;
@@ -12,12 +14,25 @@
 
 .headerLink {
     font-size: 24px;
-    color: #ff6060;
+    color: $primary-color;
     text-decoration: none;
     white-space: nowrap;
+
 }
 
 .headerLink:hover,
-.headerLink:focus {
+.headerLink:focus,
+.active {
     text-decoration: underline;
+}
+
+
+@include sm {
+    .logo {
+        width: 6rem;
+    }
+    .headerLink {
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
 }
