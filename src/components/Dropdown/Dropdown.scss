@@ -19,9 +19,13 @@
 .dropdownDesc {
     color: $primary-color;
     background: #f7f7f7;
+    opacity: 0;
+    transform: translateX(-20px); // Start slightly off-screen
+    animation: slideInDropdown 0.5s ease forwards;
+    animation-delay: calc(var(--index) * 0.1s); // Stagger each item's delay
+
     font-size: 18px;
     font-weight: 400;
-    border-radius: 5px;
     padding: 15px;
 
     &-dark {
@@ -36,5 +40,28 @@
 
     .dropdownDesc {
         font-size: 12px;
+    }
+}
+
+.dropdownContent {
+    max-height: 0; 
+    opacity: 0; 
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.dropdownContent.open { 
+    max-height: 500px;
+    opacity: 1; 
+}
+
+@keyframes slideInDropdown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

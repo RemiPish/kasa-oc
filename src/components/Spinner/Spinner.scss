@@ -1,0 +1,58 @@
+@import "../../style.scss";
+
+.spinner-container {
+    z-index: 101;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: $background-color-gray1;
+
+    &.spinner-dark {
+        background-color: $background-color-gray2;
+    }
+}
+
+.spinner-ring {
+    width: 80px;
+    height: 80px;
+    border: 6px solid transparent;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+    border-top-color: $primary-color-spinner;
+    border-right-color: $secondary-color-spinner;
+}
+
+.spinner-logo {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    animation: fadeInOut 1.5s infinite ease-in-out;
+}
+
+// Keyframes
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeInOut {
+
+    0%,
+    100% {
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}

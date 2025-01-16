@@ -23,14 +23,14 @@ export default function Dropdown(props) {
             )}
          </div>
          {opened && (
-            <div className="dropdownContent">
+            <div className={`dropdownContent ${opened ? "open" : ""}`}>
                {!arrayDesc.length && props.desc && (
                   <div className={`dropdownDesc ${darkMode ? 'dropdownDesc-dark' : ''}`}>{props.desc}</div>
                )}
 
                {arrayDesc.length > 0 &&
                   arrayDesc.map((content, index) => (
-                     <div className={`dropdownDesc ${darkMode ? 'dropdownDesc-dark' : ''}`} key={`${content}-${index}`}>
+                     <div className={`dropdownDesc ${darkMode ? 'dropdownDesc-dark' : ''}`} key={`${content}-${index}`} style={{ "--index": index }}>
                         {content}
                      </div>
                   ))}

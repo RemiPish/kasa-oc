@@ -1,16 +1,20 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Tag from '../../components/Tag/Tag';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Carousel from '../../components/Carousel/Carousel';
-
+import logo from '../../assets/logo.png';
+import { motion } from "framer-motion";
 import './Annonce.scss'
+import { DarkModeContext } from '../../context/DarkModeContext/DarkModeContext';
+import Spinner from "../../components/Spinner/Spinner";
 
 export default function Annonce() {
    const navigate = useNavigate();
    //id d'annonce utilisé pour retrouver l'annonce dans la liste
    const { annonceID } = useParams();
    const [jsonData, setJsonData] = useState(null);
+   const { darkMode } = useContext(DarkModeContext);
    //on recupere les données d'annonces du json
    useEffect(() => {
       const fetchData = async () => {
@@ -32,8 +36,18 @@ export default function Annonce() {
       fetchData();
    }, []);
    if (!jsonData) {
-      return <div>Loading...</div>;
+      return (
+         <Spinner darkMode={darkMode} size={100} logoSrc={logo} />
+      );
    }
+
+   const pageVariants = {
+      initial: { opacity: 0, x: -50 },
+      animate: { opacity: 1, x: 0 },
+      exit: { opacity: 0, x: 50 },
+   };
+
+
    //on cherche dans la liste des annonces par id pour retrouver l'annonce à afficher
    if (jsonData) {
       let annonce = jsonData.find(
@@ -48,7 +62,13 @@ export default function Annonce() {
          const lastName = annonce.host.name.split(' ')[1];
          document.title = annonce.title + ' - Kasa';
          return (
-            <div>
+            <motion.div
+               initial="initial"
+               animate="animate"
+               exit="exit"
+               variants={pageVariants}
+               transition={{ duration: 0.5 }}
+            >
                <div className="annonce-pic-container">
                   <Carousel images={annonce.pictures} />
                </div>
@@ -96,7 +116,7 @@ export default function Annonce() {
                      desc={annonce.equipments}
                   />
                </div>
-            </div >
+            </motion.div>
          )
       }
 

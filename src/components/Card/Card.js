@@ -4,7 +4,7 @@ import './Card.scss'
 
 
 //composant pour afficher une carte avec l'image de l'appartement et son titre dans la page d'accueil
-export default function Card({ link, image, title }) {
+export default function Card({ link, image, title}) {
    return (
       <Link to={link} className="card-link">
          <div className="card-img">

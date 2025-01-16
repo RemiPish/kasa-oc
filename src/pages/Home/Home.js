@@ -4,7 +4,9 @@ import './Home.scss'
 import Img from "../../assets/homeImg.png"
 import Card from '../../components/Card/Card';
 import logo from '../../assets/logo.png';
+import Spinner from "../../components/Spinner/Spinner";
 import { DarkModeContext } from '../../context/DarkModeContext/DarkModeContext';
+import { motion } from "framer-motion";
 
 //LA PAGE ACCUEIL CONTENANT LA LISTE DES ANNONCES
 export default function Home() {
@@ -35,30 +37,31 @@ export default function Home() {
       fetchData();
    }, []);
    if (!jsonData) {
-      return <div className={`loading ${darkMode ? 'loading-dark' : ''}`}>
-         <div className="loading-ring"></div>
-         <img
-            className="loading-logo"
-            src={logo}
-            alt="kasa logo"
-         />
-      </div>;
+      return (
+         <Spinner darkMode={darkMode} size={100} logoSrc={logo} />
+      );
    }
+
+   const pageVariants = {
+      initial: { opacity: 0, y: -50 },
+      animate: { opacity: 1, y: 0 },
+      exit: { opacity: 0, y: 50 },
+   };
+
    //on affiche les données d'annonces dans la page utilisant le composant Card
    return (
-      <div className="homeDiv">
-         <div className={`loading ${darkMode ? 'loading-dark' : ''}`}>
-            <div className="loading-ring"></div>
-            <img
-               className="loading-logo"
-               src={logo}
-               alt="kasa logo"
-            />
-         </div>
+      <motion.div
+         className="homeDiv"
+         initial="initial"
+         animate="animate"
+         exit="exit"
+         variants={pageVariants}
+         transition={{ duration: 0.5 }}
+      >
          <SectionCard imgStyle="darken" img={Img} alt="logo card de la page Accueil" />
          {jsonData && (
-            <div className={`cardListDiv ${darkMode ? 'cardListDiv-dark' : ''}`}>
-               {jsonData.map(item => (
+            <div className={`cardListDiv ${darkMode ? 'cardListDiv-dark' : ''}`} >
+               {jsonData.map((item) => (
                   <Card key={item.id}
                      link={'annonce/' + item.id}
                      image={item.cover}
@@ -67,7 +70,7 @@ export default function Home() {
                ))}
             </div>
          )}
-      </div>
+      </motion.div>
 
    );
 }

@@ -6,6 +6,7 @@ import About from './pages/About/About';
 import Error from './components/Error/Error';
 import Annonce from './pages/Annonce/Annonce';
 import './App.scss';
+import { AnimatePresence } from "framer-motion";
 
 function App() {
 	return (
@@ -14,16 +15,18 @@ function App() {
 			<Header />
 			<div className="page">
 				<div className="content">
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route
-							path="/annonce/:annonceID"
-							element={<Annonce />}
-						/>
-						<Route path="/about" element={<About />} />
-						<Route path="*" element={<Error />} />
-					</Routes>
-
+					<AnimatePresence mode="wait">
+						{/* AnimatePresence will handle transitions */}
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route
+								path="/annonce/:annonceID"
+								element={<Annonce />}
+							/>
+							<Route path="/about" element={<About />} />
+							<Route path="*" element={<Error />} />
+						</Routes>
+					</AnimatePresence>
 				</div>
 			</div>
 
