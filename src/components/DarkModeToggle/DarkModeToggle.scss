@@ -1,0 +1,13 @@
+@import "../../style.scss";
+
+.dark-mode-toggle {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    .fa-solid {
+        font-size: 29px;
+    }
+}

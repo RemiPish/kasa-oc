@@ -1,30 +1,41 @@
-import React from 'react';
-import { useState } from "react";
-import './Dropdown.scss'
+import React, { useState, useContext } from "react";
+import "./Dropdown.scss";
+import { DarkModeContext } from '../../context/DarkModeContext/DarkModeContext';
 
-
-//composent utilisé pour afficher un dropdown des sections
+// Component used to display a dropdown for sections
 export default function Dropdown(props) {
    const [opened, setOpened] = useState(false);
+   const { darkMode } = useContext(DarkModeContext);
    const toggleOpened = () => {
       setOpened(!opened);
-   }
-   let arrayDesc = [];
-   if (Array.isArray(props.desc)) {
-      props.desc.forEach((item) => {
-         arrayDesc.push(item)
-      })
-   }
+   };
 
-   return <div onClick={toggleOpened} className='dropdownDiv'>
-      <div className="dropdownTitle">
-         <div>{props.title}</div>
-         {opened && <i className="fa fa-chevron-down" aria-hidden="true"></i>}
-         {!opened && <i className="fa fa-chevron-up" aria-hidden="true"></i>}
+   const arrayDesc = Array.isArray(props.desc) ? props.desc : [];
+
+   return (
+      <div onClick={toggleOpened} className="dropdownDiv">
+         <div className="dropdownTitle">
+            <div>{props.title}</div>
+            {opened ? (
+               <i className="fa fa-chevron-up" aria-hidden="true"></i>
+            ) : (
+               <i className="fa fa-chevron-down" aria-hidden="true"></i>
+            )}
+         </div>
+         {opened && (
+            <div className="dropdownContent">
+               {!arrayDesc.length && props.desc && (
+                  <div className={`dropdownDesc ${darkMode ? 'dropdownDesc-dark' : ''}`}>{props.desc}</div>
+               )}
+
+               {arrayDesc.length > 0 &&
+                  arrayDesc.map((content, index) => (
+                     <div className={`dropdownDesc ${darkMode ? 'dropdownDesc-dark' : ''}`} key={`${content}-${index}`}>
+                        {content}
+                     </div>
+                  ))}
+            </div>
+         )}
       </div>
-      {opened && !arrayDesc.length && <div className="dropdownDesc">{props.desc}</div>}
-      {opened && arrayDesc.length && arrayDesc.map((content, index) => (
-         <div className="dropdownDesc" key={`${content}-${index}`}>{content}</div>
-      ))}
-   </div>
+   );
 }

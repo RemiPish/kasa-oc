@@ -23,12 +23,17 @@
     font-weight: 400;
     border-radius: 5px;
     padding: 15px;
+
+    &-dark {
+        background: $background-color-gray2;
+    }
 }
 
 @include sm {
     .dropdownTitle {
         font-size: 13px;
     }
+
     .dropdownDesc {
         font-size: 12px;
     }

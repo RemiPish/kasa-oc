@@ -4,12 +4,17 @@ import './style.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { DarkModeProvider } from "./context/DarkModeContext/DarkModeContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <React.StrictMode>
+    <DarkModeProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </DarkModeProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

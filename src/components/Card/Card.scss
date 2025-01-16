@@ -8,8 +8,15 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    /* Ensure parent div takes full height */
     position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
     @include sm {
         width: 100%;
         height: 255px;
@@ -19,24 +26,25 @@
 .card-img {
     flex: 1;
     position: relative;
+    overflow: hidden;
 
     img {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        min-height: 100%;
+        height: 100%;
         object-fit: cover;
-    }
+        transition: transform 0.3s ease;
 
-    img:hover {
-        opacity: 0.5 !important;
-        transition-delay: 0s !important;
-        transition-duration: .15s !important;
+        &:hover {
+            opacity: 0.5 !important;
+            transition-delay: 0s !important;
+            transition-duration: .15s !important;
+            transform: scale(1.1);
+        }
     }
 }
-
-
 
 .card-title {
     position: absolute;
@@ -48,6 +56,7 @@
     font-weight: 500;
     margin-bottom: 0.5rem;
     z-index: 100;
+    transition: color 0.3s ease;
 }
 
 .card-overlay {
@@ -58,4 +67,9 @@
     height: 50%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
     pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 0.9;
+    }
 }

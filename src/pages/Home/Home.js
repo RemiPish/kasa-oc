@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import SectionCard from '../../components/SectionCard/SectionCard';
 import './Home.scss'
 import Img from "../../assets/homeImg.png"
 import Card from '../../components/Card/Card';
-
+import logo from '../../assets/logo.png';
+import { DarkModeContext } from '../../context/DarkModeContext/DarkModeContext';
 
 //LA PAGE ACCUEIL CONTENANT LA LISTE DES ANNONCES
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
 
    //Donnée annonces apartements
    const [jsonData, setJsonData] = useState(null);
+   const { darkMode } = useContext(DarkModeContext);
 
    useEffect(() => {
       //on recupere les données d'annonces du json
@@ -33,14 +35,29 @@ export default function Home() {
       fetchData();
    }, []);
    if (!jsonData) {
-      return <div>Loading...</div>;
+      return <div className={`loading ${darkMode ? 'loading-dark' : ''}`}>
+         <div className="loading-ring"></div>
+         <img
+            className="loading-logo"
+            src={logo}
+            alt="kasa logo"
+         />
+      </div>;
    }
    //on affiche les données d'annonces dans la page utilisant le composant Card
    return (
       <div className="homeDiv">
+         <div className={`loading ${darkMode ? 'loading-dark' : ''}`}>
+            <div className="loading-ring"></div>
+            <img
+               className="loading-logo"
+               src={logo}
+               alt="kasa logo"
+            />
+         </div>
          <SectionCard imgStyle="darken" img={Img} alt="logo card de la page Accueil" />
          {jsonData && (
-            <div className="cardListDiv">
+            <div className={`cardListDiv ${darkMode ? 'cardListDiv-dark' : ''}`}>
                {jsonData.map(item => (
                   <Card key={item.id}
                      link={'annonce/' + item.id}
