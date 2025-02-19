@@ -20,9 +20,9 @@
     color: $primary-color;
     background: #f7f7f7;
     opacity: 0;
-    transform: translateX(-20px); // Start slightly off-screen
+    transform: translateX(-20px); 
     animation: slideInDropdown 0.5s ease forwards;
-    animation-delay: calc(var(--index) * 0.1s); // Stagger each item's delay
+    animation-delay: calc(var(--index) * 0.1s);
 
     font-size: 18px;
     font-weight: 400;

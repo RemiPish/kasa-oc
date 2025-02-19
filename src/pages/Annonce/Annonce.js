@@ -62,61 +62,80 @@ export default function Annonce() {
          const lastName = annonce.host.name.split(' ')[1];
          document.title = annonce.title + ' - Kasa';
          return (
-            <motion.div
-               initial="initial"
-               animate="animate"
-               exit="exit"
-               variants={pageVariants}
-               transition={{ duration: 0.5 }}
-            >
-               <div className="annonce-pic-container">
-                  <Carousel images={annonce.pictures} />
-               </div>
-               <div className="annonce-info-div">
-                  <div className="annonce-info">
-                     <div className="annonce-title">{annonce.title}</div>
-                     <div className="annonce-location">
-                        {annonce.location}
+            <>
+               <Helmet>
+                  <title>Annonces Immobilières – Trouvez votre Appartement | Kasa</title>
+                  <meta name="description" content="Découvrez les meilleures annonces immobilières en France. Trouvez facilement un appartement ou une maison à louer ou à acheter." />
+                  <meta name="keywords" content="annonces immobilières, appartement à louer, maison à vendre, immobilier France, location, achat" />
+                  <meta name="author" content="Rémi Phyu" />
+                  <meta property="og:title" content="Annonces Immobilières – Trouvez votre Appartement | Kasa" />
+                  <meta property="og:description" content="Découvrez les meilleures annonces immobilières en France." />
+                  <meta property="og:image" content="src\assets\logo.png" />
+                  <meta property="og:url" content="https://kasa-oc-ten.vercel.app/" />
+                  <meta property="og:type" content="website" />
+                  <meta name="twitter:card" content="src\assets\homeImg.png" />
+                  <meta name="twitter:title" content="Annonces Immobilières – Trouvez votre Appartement | Kasa" />
+                  <meta name="twitter:description" content="Découvrez les meilleures annonces immobilières en France." />
+                  <meta name="twitter:image" content="src\assets\logo.png" />
+                  <html lang="fr" />
+               </Helmet>
+
+               <motion.div
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={{ duration: 0.5 }}
+               >
+                  <div className="annonce-pic-container">
+                     <Carousel images={annonce.pictures} />
+                  </div>
+                  <div className="annonce-info-div">
+                     <div className="annonce-info">
+                        <div className="annonce-title">{annonce.title}</div>
+                        <div className="annonce-location">
+                           {annonce.location}
+                        </div>
+                        <div className="tag-div">
+                           {annonce.tags.map((tag, index) => (
+                              <Tag name={tag} key={`${index}-${tag}`} />
+                           ))}
+                        </div>
                      </div>
-                     <div className="tag-div">
-                        {annonce.tags.map((tag, index) => (
-                           <Tag name={tag} key={`${index}-${tag}`} />
-                        ))}
+                     <div className="annonce-info-rating rating-div">
+                        <div className="annonce-info-profile">
+                           <div className="name">
+                              <div>{firstName}</div>
+                              <div>{lastName}</div>
+                           </div>
+                           <div className="host-img">
+                              <img
+                                 src={annonce.host.picture}
+                                 alt='hostPic'
+                              />
+
+                           </div>
+                        </div>
+                        <div className="annonce-rating">
+                           {Array.from({ length: 5 }).map((_, index) => (
+                              <i key={index} className={`fa-solid fa-star  ${index < annonce.rating ? 'colored' : 'gray'}`} ></i>
+                           ))}
+                        </div>
+
                      </div>
                   </div>
-                  <div className="annonce-info-rating rating-div">
-                     <div className="annonce-info-profile">
-                        <div className="name">
-                           <div>{firstName}</div>
-                           <div>{lastName}</div>
-                        </div>
-                        <div className="host-img">
-                           <img
-                              src={annonce.host.picture}
-                              alt='hostPic'
-                           />
-
-                        </div>
-                     </div>
-                     <div className="annonce-rating">
-                        {Array.from({ length: 5 }).map((_, index) => (
-                           <i key={index} className={`fa-solid fa-star  ${index < annonce.rating ? 'colored' : 'gray'}`} ></i>
-                        ))}
-                     </div>
-
+                  <div className="annonce-body">
+                     <Dropdown
+                        title="Description"
+                        desc={annonce.description}
+                     />
+                     <Dropdown
+                        title="Equipements"
+                        desc={annonce.equipments}
+                     />
                   </div>
-               </div>
-               <div className="annonce-body">
-                  <Dropdown
-                     title="Description"
-                     desc={annonce.description}
-                  />
-                  <Dropdown
-                     title="Equipements"
-                     desc={annonce.equipments}
-                  />
-               </div>
-            </motion.div>
+               </motion.div>
+            </>
          )
       }
 

@@ -50,27 +50,45 @@ export default function Home() {
 
    //on affiche les données d'annonces dans la page utilisant le composant Card
    return (
-      <motion.div
-         className="homeDiv"
-         initial="initial"
-         animate="animate"
-         exit="exit"
-         variants={pageVariants}
-         transition={{ duration: 0.5 }}
-      >
-         <SectionCard imgStyle="darken" img={Img} alt="logo card de la page Accueil" />
-         {jsonData && (
-            <div className={`cardListDiv ${darkMode ? 'cardListDiv-dark' : ''}`} >
-               {jsonData.map((item) => (
-                  <Card key={item.id}
-                     link={'annonce/' + item.id}
-                     image={item.cover}
-                     title={item.title}
-                  />
-               ))}
-            </div>
-         )}
-      </motion.div>
+      <>
+         <Helmet>
+            <title>Annonces Immobilières – Trouvez votre Appartement | Kasa</title>
+            <meta name="description" content="Découvrez les meilleures annonces immobilières en France. Trouvez facilement un appartement ou une maison à louer ou à acheter." />
+            <meta name="keywords" content="annonces immobilières, appartement à louer, maison à vendre, immobilier France, location, achat" />
+            <meta name="author" content="Rémi Phyu" />
+            <meta property="og:title" content="Annonces Immobilières – Trouvez votre Appartement | Kasa" />
+            <meta property="og:description" content="Découvrez les meilleures annonces immobilières en France." />
+            <meta property="og:image" content="src\assets\logo.png" />
+            <meta property="og:url" content="https://kasa-oc-ten.vercel.app/" />
+            <meta property="og:type" content="website" />
+            <meta name="twitter:card" content="src\assets\homeImg.png" />
+            <meta name="twitter:title" content="Annonces Immobilières – Trouvez votre Appartement | Kasa" />
+            <meta name="twitter:description" content="Découvrez les meilleures annonces immobilières en France." />
+            <meta name="twitter:image" content="src\assets\logo.png" />
+            <html lang="fr" />
+         </Helmet>
 
+         <motion.div
+            className="homeDiv"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            transition={{ duration: 0.5 }}
+         >
+            <SectionCard imgStyle="darken" img={Img} alt="logo card de la page Accueil" />
+            {jsonData && (
+               <div className={`cardListDiv ${darkMode ? 'cardListDiv-dark' : ''}`} >
+                  {jsonData.map((item) => (
+                     <Card key={item.id}
+                        link={'annonce/' + item.id}
+                        image={item.cover}
+                        title={item.title}
+                     />
+                  ))}
+               </div>
+            )}
+         </motion.div>
+      </>
    );
 }
