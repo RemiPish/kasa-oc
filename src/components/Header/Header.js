@@ -3,11 +3,15 @@ import logo from './../../assets/logo.png'
 import './Header.scss'
 import { useLocation } from 'react-router-dom';
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
-
+import { useFullscreen } from "../../context/FullscreenContext/FullscreenContext";
 
 //l'entete des pages du site contentant le logo et les liens vers les pages 
 export default function Header() {
    const location = useLocation();
+   const { fullscreenImage } = useFullscreen();
+
+   if (fullscreenImage) return null;
+
    return <div className='headerNav'>
       <a href="/" className="headerLogoDiv">
          <img className="logo" src={logo} alt="logo kasa" />

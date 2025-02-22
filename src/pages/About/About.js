@@ -3,6 +3,7 @@ import './About.scss'
 import SectionCard from '../../components/SectionCard/SectionCard';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Img from '../../assets/aboutImg.png';
+import { Helmet } from 'react-helmet';
 
 //LA PAGE A PROPOS CONTENANT LES DROPDOWNS POUR LES SECTIONS
 export default function About() {

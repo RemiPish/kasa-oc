@@ -5,14 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { DarkModeProvider } from "./context/DarkModeContext/DarkModeContext";
+import { FullscreenProvider } from "./context/FullscreenContext/FullscreenContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <DarkModeProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <FullscreenProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </FullscreenProvider>
     </DarkModeProvider>
   </React.StrictMode>
 );

@@ -7,6 +7,7 @@ import logo from '../../assets/logo.png';
 import Spinner from "../../components/Spinner/Spinner";
 import { DarkModeContext } from '../../context/DarkModeContext/DarkModeContext';
 import { motion } from "framer-motion";
+import { Helmet } from 'react-helmet';
 
 //LA PAGE ACCUEIL CONTENANT LA LISTE DES ANNONCES
 export default function Home() {
